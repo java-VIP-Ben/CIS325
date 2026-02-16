@@ -1,4 +1,4 @@
-/* Basic Reset for demonstration */
+/* Styles.css Application Stylesheet */
 body, h1, p, ul, li {
     margin: 0;
     padding: 0;
@@ -42,6 +42,10 @@ footer {
     margin-top: 20px;
     font-size: 0.8rem;
     color: #666;
+    .horizontal-container {
+      display: flex;
+      justify-content: center;
+    }
 }
 
 button {
