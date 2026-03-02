@@ -2,24 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>BMW 325CI Timeline</title>
+    <title>JSON Account Information</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
 
     <div class="container">
-      <h1>My Cars Timeline</h1>
+      <h1>Manage Account Information</h1>
 
-      <button id="clickBtn">Next Year</button>
+      <form action="/submit-form" method="POST">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required><br><br>
 
-      <div id="imageContainer">
-        <img id="mouseoverImage" src="./pictures/first.JPG">
-      </div>
-      <div id="description">
-        <p id="aboutYear">This was the day I got my car! It needed a mirror, bumper, fluid change, Mass Airflow Sensor, and the transmission was grinding.</p>
-      </div>
-    </div>
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required><br><br>
 
-    <script src="script.js"></script>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="password2">Confirm Password:</label>
+        <input type="password" id="password2" name="password2" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br><br>
+        
+        <button id="submitBtn">Submit</button>
+      </form>
+
+
+      <script src="script.js"></script>
   </body>
 </html>

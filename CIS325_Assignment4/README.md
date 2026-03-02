@@ -1,15 +1,12 @@
-# Assignment 3 Event Driven JS
+# Assignment 4 JSON Data using Inputs 
 
-This is the event handler assignment for CIS325 at Murray State University.
-The assignment has a simple UI that showcases various images of my car. To use this website,
-all you need to do is run 'index.html.' Once it is open, click the "Next Year" button
-to view the other pictures and descriptions of my progression with my car. 
-Hovering over the picture will alert you with the year the photo was taken. 
+My name is Benjamin Lukens. This is my CIS325 Assignment 4 submission for my class
+at Murray State University. This assignment takes form control element data from 
+user input and creates exportable JSON data. This is the fundamental of a working website. 
+Information like this can be used for account creation, authentication, purchasing, etc. 
+The assignment also calls for form validation, another significant part of a well
+polished website. Form validation can be tricky though, especially for live updating. 
 
-I chose my car as my photos because I believe that each photo shows the hard work 
-and dedication, as well as some of the exciting moments of each year, for the past 6
-years. I started with a total project, and turned it into something that brings me 
-joy every time I step in the drivers seat. Over the years I have spent much needed hours
-in the garage with my dad, and I have learned a seemingly limitless amount of knowledge
-about how these cars work. I firmly believe that working on this car with my dad has been
-some of the most important parts of my life and will continue to help me in the future. 
+To run this project, open the CIS325_Assignment4 folder, and click on the 'index.html'
+file. That will open the web page. From there, input data into the fields and press
+the submit button. A json object will appear in the console. 
