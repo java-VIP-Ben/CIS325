@@ -1,0 +1,61 @@
+/* Benjamin Lukens Assignment 3 CIS325*/
+body {
+  font-family: Lato, sans-serif;
+  background: #365c99; /* Flat Blue */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submitForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+}
+
+.form-row label {
+  width: 150px;      /* Fixed label width */
+  text-align: right; /* Align text neatly */
+  margin-right: 10px;
+}
+
+.form-row input {
+  flex: 1;           /* Input fills remaining space */
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+#submitForm small {
+  margin-left: 130px; /* Align error messages under inputs */
+  font-size: 12px;
+  color: red;
+}
+
+.container {
+  background: white;
+  padding: 40px;
+  text-align: center;
+  width: 350px;
+  margin-top: 72px;
+}
+
+#submitBtn {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background-color: #505050;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#submitBtn:hover {
+  background-color: #000;
+}
