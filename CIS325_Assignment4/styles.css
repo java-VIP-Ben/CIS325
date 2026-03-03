@@ -1,40 +1,51 @@
 /* Benjamin Lukens Assignment 3 CIS325*/
 body {
   font-family: Lato, sans-serif;
-  background: #686A6C; /* Nardo Grey */
+  background: #365c99; /* Flat Blue */
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#submitForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+}
+
+.form-row label {
+  width: 150px;      /* Fixed label width */
+  text-align: right; /* Align text neatly */
+  margin-right: 10px;
+}
+
+.form-row input {
+  flex: 1;           /* Input fills remaining space */
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+#submitForm small {
+  margin-left: 130px; /* Align error messages under inputs */
+  font-size: 12px;
+  color: red;
+}
+
 .container {
   background: white;
   padding: 40px;
   text-align: center;
-  width: 330px;
+  width: 350px;
+  margin-top: 72px;
 }
 
-.description {
-  padding: 24px;
-  display: flex;
-  width: 300px;
-  height: fit-content;
-  justify-content: center;
-  align-items: center;
-  .aboutYear {
-    display: flex;
-    font-size: 14px;
-    font-family: Lato, sans-serif;
-    font-weight: 300;
-  }
-}
-
-h1 {
-  margin-bottom: 25px;
-}
-
-#clickBtn {
+#submitBtn {
   padding: 12px 25px;
   font-size: 16px;
   border: none;
@@ -45,16 +56,6 @@ h1 {
   transition: 0.3s;
 }
 
-#clickBtn:hover {
+#submitBtn:hover {
   background-color: #000;
-}
-
-#imageContainer {
-  margin-top: 30px;
-}
-
-#mouseoverImage {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
 }
