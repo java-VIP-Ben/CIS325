@@ -1,0 +1,37 @@
+# Benjamin Lukens CIS325
+# Text file of Version control slides in Module 1 
+
+Version control, also known as source control, is the practice of tracking and 
+managing changes in the software code. Version control systems are software tools that 
+help software teams manage changes to source code over time. 
+As development environments have accelerated, version control systems help software 
+teams work faster and smarter. 
+
+"Defining user groups and problems through research" Description: 
+- How to define a target user group 
+- Techniques; Surveys, interviews, and basic market research
+- Walkthrough of Deliverable 1 requirements
+- Students draft early ideas for user group + problems
+
+Steps (git lifecycle) 
+1.) Install VSCode
+2.) Install GitHub Desktop
+3.) Open GitHub Desktop 
+4.) Sign in to GitHub Desktop
+5.) Open VSCode
+6.) Install GitHub Extension for VSCode
+7.) Sign in to GitHub in VSCode
+8.) Clone a Repository
+9.) Configure Repository Settings
+10.) Create a Personal Branch from Main
+11.) Make Code Changes
+12.) Comment Code
+13.) Push Changes
+14.) Create a Pull Request
+15.) Merge Pull Request 
+
+Popular extensions: 
+Git Graph, Git History, GithubPullRequests, gitignore, gitlens <- for VSCODE
+
+The rest of the slides are about VScode, which I dont use, and branches. 
+I made created this file on another branch, so I get the idea. 
