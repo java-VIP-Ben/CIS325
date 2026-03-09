@@ -1,0 +1,6 @@
+https://github.com/java-VIP-Ben/CIS325/tree/main
+
+Then navigate to the CIS325_Assignment4 folder. I dont believe it is in my best interest
+for organizing my github account to have a bunch of different repositories for projects. 
+Having one repo for lots of projects also makes merging repositories together for 
+archiving learned code easier later down the line. Why rewrite the same code over and over?

@@ -1,0 +1,5 @@
+Benjamin Lukens CIS325 Assignment 1 
+Sources: 
+I used w3schools and googles AI response to get templates for each file. 
+I then modified each file to work with each other and incorporate personal touches. 
+
