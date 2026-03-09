@@ -1,0 +1,16 @@
+{
+  "name": "newapp",
+  "version": "1.0.0",
+  "description": "This is a testing app from CIS325 lecture videos",
+  "license": "ISC",
+  "author": "Benjamin Lukens",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "sqlite3": "^5.1.7"
+  }
+}
