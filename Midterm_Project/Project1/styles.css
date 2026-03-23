@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Times New Roman', Times, serif, sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+header {
+  background: #AAAA; /* Screaming colors */
+  color: black;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.emailLink {
+  font-size: 14px
+}
