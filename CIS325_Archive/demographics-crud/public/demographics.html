@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Account Identification Page</h1>
+    <form id="idForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+      <br><br>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+      <br><br>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+      <br><br>
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+      <br><br>
+      <label for="gender">Gender: </label>
+      <select name="gender" id="gender" required>
+        <option value="default" selected> </option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other/Prefer not to specify</option>
+      </select>
+      <br><br>
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required>
+      <br><br>
+      <button type="submit" onclick="submit()">Submit Record</button>
+      <br><br>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+      document.getElementById("idForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const age = document.getElementById("age").value;
+        const email = document.getElementById("email").value;
+        const gender = document.getElementById("gender").value;
+        const city = document.getElementById("city").value;
+
+        // Client validation
+        if(age <= 0){
+          alert("Age must be positive");
+          return;
+        }
+
+        const emailPattern = /\S+@\S+\.\S+/;
+
+        if(!emailPattern.test(email)){
+          alert("Invalid email format");
+          return;
+        }
+        const data = {
+          firstName,
+          lastName,
+          age,
+          email,
+          gender,
+          city
+        };
+
+        const response = fetch("/api/demographics", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data));
+      });
+    </script>
+  </body>
+</html>
