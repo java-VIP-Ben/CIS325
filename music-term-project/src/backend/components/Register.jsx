@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/global.css";
 
 function Register() {
   const [userName, setUsername] = useState("");
@@ -21,7 +22,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Register</h2>
 
       <form onSubmit={handleRegister}>
