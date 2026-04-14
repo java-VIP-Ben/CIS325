@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../styles/global.css";
 
 function Login() {
   const [userName, setUsername] = useState("");
@@ -28,7 +29,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Login</h2>
 
       <form onSubmit={handleLogin}>

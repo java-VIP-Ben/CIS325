@@ -20,7 +20,7 @@ function Home() {
       method: "DELETE",
     });
 
-    fetchAccounts(); // refresh list
+    fetchAccounts();
   };
 
   // updating accounts
@@ -39,7 +39,7 @@ function Home() {
       }),
     });
 
-    fetchAccounts(); // refresh list
+    fetchAccounts();
   };
 
   return (
