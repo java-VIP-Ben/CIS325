@@ -28,6 +28,163 @@ db.run(`
   )
 `);
 
+// creating playlists table
+db.run(`
+  CREATE TABLE IF NOT EXISTS Playlists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    userId INTEGER
+  )
+`);
+
+// creating songs within playlist table
+db.run(`
+  CREATE TABLE IF NOT EXISTS PlaylistSongs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    playlistId INTEGER,
+    videoId TEXT,
+    title TEXT
+  )
+`);
+
+// accessing YT data API v3
+app.get("/youtube", async (request, response) => {
+  const { q } = request.query;
+  const API_KEY = "AIzaSyC92NxFOUs_im9VGnBxPMm-JK5KOaQU4Gs";
+
+  const res = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=${API_KEY}&maxResults=3&type=video`
+  );
+
+  const data = await res.json();
+  response.json(data);
+});
+
+// fetching playlist tracks from playlists table
+app.get("/playlists/:userId", (request, response) => {
+  const { userId } = request.params;
+
+  db.all(
+    "SELECT * FROM Playlists WHERE userId = ?",
+    [userId],
+    (err, rows) => {
+      if (err) return response.status(500).json({ error: err.message });
+      response.json(rows);
+    }
+  );
+});
+
+// creating playlists
+app.post("/playlists", (request, response) => {
+  const { name, userId } = request.body;
+
+  db.run(
+    "INSERT INTO Playlists (name, userId) VALUES (?, ?)",
+    [name, userId],
+    function (err) {
+      if (err) return response.status(500).json({ error: err.message });
+
+      response.json({ success: true });
+    }
+  );
+});
+
+// fetching songs in playlist
+app.get("/playlist-songs/:playlistId", (request, response) => {
+  const { playlistId } = request.params;
+
+  db.all(
+    "SELECT * FROM PlaylistSongs WHERE playlistId = ?",
+    [playlistId],
+    (err, rows) => {
+      if (err) return response.status(500).json({ error: err.message });
+
+      response.json(rows);
+    }
+  );
+});
+
+// adding songs into playlists
+app.post("/playlist-songs", (request, response) => {
+  const { playlistId, videoId, title } = request.body;
+
+  const query = `
+    INSERT INTO PlaylistSongs (playlistId, videoId, title)
+    VALUES (?, ?, ?)
+  `;
+
+  db.run(query, [playlistId, videoId, title], function (err) {
+    if (err) {
+      return response.status(500).json({ error: err.message });
+    }
+
+    response.json({ success: true });
+  });
+});
+
+// removing entire playlists
+app.delete("/playlists/:id", (request, response) => {
+  const { id } = request.params;
+
+  // delete songs first
+  db.run(
+    "DELETE FROM PlaylistSongs WHERE playlistId = ?",
+    [id],
+    (err) => {
+      if (err) {
+        return response.status(500).json({ error: err.message });
+      }
+
+      // then delete playlist
+      db.run(
+        "DELETE FROM Playlists WHERE id = ?",
+        [id],
+        function (err) {
+          if (err) {
+            return response.status(500).json({ error: err.message });
+          }
+          response.json({ success: true });
+        }
+      );
+    }
+  );
+});
+
+// updating playlist names
+app.put("/playlists/:id", (request, response) => {
+  const { id } = request.params;
+  const { name } = request.body;
+
+  db.run(
+    "UPDATE Playlists SET name = ? WHERE id = ?",
+    [name, id],
+    function (err) {
+      if (err) {
+        return response.status(500).json({ error: err.message });
+      }
+
+      response.json({ success: true });
+    }
+  );
+});
+
+// removing a song from the selected playlist
+app.delete("/playlist-songs/:id", (request, response) => {
+  const { id } = request.params;
+
+  db.run(
+    "DELETE FROM PlaylistSongs WHERE id = ?",
+    [id],
+    function (err) {
+      if (err) {
+        return response.status(500).json({ error: err.message });
+      }
+
+      response.json({ success: true });
+    }
+  );
+});
+
 // if login info matches db 
 app.post("/login", (request, response) => {
   const { userName, password } = request.body;

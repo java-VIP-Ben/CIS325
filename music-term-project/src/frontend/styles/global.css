@@ -1,5 +1,4 @@
 body {
-  display: flex;
   justify-content: center;
   margin: 0;
   font-family: Arial, sans-serif;
@@ -9,11 +8,23 @@ body {
 
 .container {
   width: 330px;
+  height: 100%;
   margin: 80px auto;
   padding: 20px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }
 
 button {
@@ -38,4 +49,26 @@ input {
 
 table {
   background-color: white;
+}
+
+img {
+  width: 120px;
+  border-radius: 8px;
+}
+
+iframe {
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.sidebar {
+  width: 250px;
+  background: #345385;
+  color: white;
+  height: 100%;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/global.css";
+import "../../frontend/styles/global.css";
 
 function Register() {
   const [userName, setUsername] = useState("");
