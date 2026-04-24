@@ -8,9 +8,17 @@ function Navbar({theme, setTheme}) {
   const handleDelete = async () => {
     const userId = localStorage.getItem("userId");
 
-    await fetch(`http://localhost:3000/accounts/${userId}`, {
+    const res = await fetch(`http://localhost:3000/accounts/${userId}`, {
       method: "DELETE",
     });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.error("Delete failed:", data);
+      alert("Failed to delete account");
+      return;
+    }
 
     localStorage.clear();
     navigate("/login");

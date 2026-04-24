@@ -15,6 +15,17 @@ function Home() {
   // equalizer
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // recommendations
+  const [recommendations, setRecommendations] = useState([]);
+  const getRecommendations = async (category = "chill") => {
+    const res = await fetch(
+      `http://localhost:3000/recommendations?category=${category}`
+    );
+
+    const data = await res.json();
+    setRecommendations(data.items || []);
+  };
+
   const fetchPlaylists = async () => {
     const userId = localStorage.getItem("userId");
 
@@ -66,6 +77,8 @@ function Home() {
     const data = await res.json();
     setPlaylistSongs(data);
     fetchPlaylists();
+
+    getRecommendations("chill");
   };
 
   // removing songs from selected playlist
@@ -83,6 +96,7 @@ function Home() {
   return (
     <div style={{ display: "flex", height: "100vh" }}>
     <Sidebar
+    selectedPlaylist={selectedPlaylist}
     onSelectPlaylist={(id) => {
       setSelectedPlaylist(id);
       loadPlaylistSongs(id);
@@ -108,9 +122,9 @@ function Home() {
     {selectedVideo && (
       <div style={{ 
         display: "flex",
-        alignItems: "center",
-        gap: "20px",
-        marginTop: "20px",
+          alignItems: "center",
+          gap: "20px",
+          marginTop: "20px",
       }}>
       <iframe
       width="560"
@@ -175,7 +189,11 @@ function Home() {
       <h3>Playlist Songs</h3>
 
       {playlistSongs.map((song) => (
-        <div key={song.id} style={{ marginBottom: "10px" }}>
+        <div key={song.id} style={{ 
+          marginBottom: "10px", 
+          paddingBottom: "10px",
+          borderBottom: "1px solid #000",
+        }}>
         <p>{song.title}</p>
 
         <button
@@ -198,6 +216,28 @@ function Home() {
         allow="autoplay"
         title="playlist-video"
         />
+        </div>
+      ))}
+      </>
+    )}
+    {selectedPlaylist && (
+      <>
+      <h3>Recommendations</h3>
+
+      <button onClick={() => getRecommendations("chill")}>Chill</button>
+      <button onClick={() => getRecommendations("workout")}>Workout</button>
+      <button onClick={() => getRecommendations("focus")}>Focus</button>
+
+      {recommendations.map((video) => (
+        <div key={video.id.videoId} style={{ marginBottom: "10px" }}>
+        <img src={video.snippet.thumbnails.default.url} />
+        <p>{video.snippet.title}</p>
+
+        <button
+        onClick={() => setSelectedVideo(video.id.videoId)}
+        >
+        Play
+        </button>
         </div>
       ))}
       </>
