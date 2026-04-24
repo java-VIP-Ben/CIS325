@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../../frontend/styles/global.css";
+import "../styles/global.css";
 
 function Login() {
   const [userName, setUsername] = useState("");
@@ -22,7 +22,6 @@ function Login() {
     const data = await response.json();
 
     if (data.success) {
-      localStorage.setItem("userId", data.account.id);
       navigate("/home");
     } else {
       alert(data.message);
