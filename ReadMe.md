@@ -3,12 +3,32 @@
 This is a collection of notes, assignments, and projects for my CIS325 Web
 Development class at Murray State University. 
 
-For the current Assignment, please clone the repository, go into the 
-music-term-project directory and use the 'npm run dev' as well as 'node server.js' command once in project3
-to correctly run the webpage. The app opens to a login page. If you do not have an account, 
-click the register button below and create an account with new credentials. Afterwards, 
-click the login button again and use those credentials. There you will be able to see 
-your login information as well as the other accounts (will be removed later due to privacy).
-The passwords are saved correctly (because the login works) but uses bcrpyt to hash the 
-passwords to make them unreadable to humans. You can then edit and delete accounts 
-freely using the buttons at the end of the table. 
+To run the music project:
+1.) please clone the repository
+2.) navigate to the music-term-project directory and use the 'npm run dev' as well as 'node server.js' in separate terminal windows.
+3.) search http://localhost:5173 in a web browser
+
+To use the music app: 
+1.) Click the register button at the bottom of the login card
+2.) Type in your credentials, you will be automatically redirected to the homepage
+3.) Use the sidebar buttons to create a playlist
+4.) Once the playlist is created, click on its name
+5.) Search for songs using the search bar, you will be given 3 choices based on your search
+6.) Add songs to playlist using the dropdown menu. If playlist names are not showing, click the playlist on the sidebar again. 
+7.) Browse song recommendations at the bottom of the page based on category. 
+8.) Enjoy the equalizer animation beside your songs
+9.) For dark/light theme, click "Account Settings" at the top navbar and select the theme youd like to use.
+
+For Account management: 
+1.) Once logged in, click the "Account Settings" button at the top navbar
+2.) Select either edit or delete account. 
+Note: Deleting the account deletes all playlists and redirects the user to login
+Note: Editing an account will change the login information, it may be important to store
+credentials manually. 
+
+Features completed:
+[ x ] -> Ability to search for new music
+[ x ] -> Music recommendations
+[ x ] -> Visual Equalizer
+[ x ] -> Playlist functionality
+[ x ] -> Easy to use UI and selectable various color schemes
