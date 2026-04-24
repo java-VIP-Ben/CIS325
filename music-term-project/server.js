@@ -49,10 +49,32 @@ db.run(`
 // accessing YT data API v3
 app.get("/youtube", async (request, response) => {
   const { q } = request.query;
-  const API_KEY = import.meta.env.YOUTUBE_API_KEY;
+  const API_KEY = process.env.YOUTUBE_API_KEY;
 
   const res = await fetch(
     `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=${API_KEY}&maxResults=3&type=video`
+  );
+
+  const data = await res.json();
+  response.json(data);
+});
+
+// getting YT recommendations
+app.get("/recommendations", async (request, response) => {
+  const { category } = request.query;
+
+  let query = "popular music";
+
+  if (category === "chill") query = "lofi chill music";
+  if (category === "workout") query = "gym workout music";
+  if (category === "focus") query = "study focus music";
+  if (category === "sad") query = "sad songs playlist";
+  if (category === "party") query = "party hits playlist";
+
+  const API_KEY = process.env.YOUTUBE_API_KEY;
+
+  const res = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&key=${API_KEY}&maxResults=5&type=video`
   );
 
   const data = await res.json();
