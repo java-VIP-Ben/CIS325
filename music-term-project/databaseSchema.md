@@ -21,25 +21,29 @@ Music: Create - Users will be able to create their own account specific playlist
 
 musicApp.db
 Table: Accounts
-Columns: id, firstName, lastName, userName, password, email
+Columns: id, userName, password
 JSON format 
 { 
     id: int,
-    firstName: string,
-    lastName: string,
     userName: string,
     password: string,
-    email: string
 }
 
 Table Playlist: 
-Columns: id, name, songTitle, artist, duration, songQuantity
+Columns: id, name, userId
 JSON format 
 {
     id: int,
     name: string,
-    songTitle: string,
-    artist: string,
-    duration: int,
-    songQuantity: int
+    userId: string,
+}
+
+Table PlaylistSongs: 
+Columns: id, playlistId, videoId, title
+JSON format 
+{
+    id: int,
+    playlistId: int,
+    videoId: int,
+    title: string,
 }
