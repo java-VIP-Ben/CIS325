@@ -2,6 +2,8 @@ import express from "express";
 import sqlite3 from "sqlite3";
 import cors from "cors";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const sqlite = sqlite3.verbose();
@@ -47,7 +49,7 @@ db.run(`
 // accessing YT data API v3
 app.get("/youtube", async (request, response) => {
   const { q } = request.query;
-  const API_KEY = "AIzaSyC92NxFOUs_im9VGnBxPMm-JK5KOaQU4Gs";
+  const API_KEY = import.meta.env.YOUTUBE_API_KEY;
 
   const res = await fetch(
     `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=${API_KEY}&maxResults=3&type=video`
