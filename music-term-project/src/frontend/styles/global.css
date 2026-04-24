@@ -5,6 +5,7 @@
   --sidebar: #345385;
   --button: #4CAF50;
   --button-hover: #45a049;
+  --hover: #273c5e
 }
 
 body.dark {
@@ -14,6 +15,7 @@ body.dark {
   --sidebar: #1a1a1a;
   --button: #3b82f6;
   --button-hover: #2563eb;
+  --hover: #263c61
 }
 
 body {
