@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Settings() {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  // to route to login 
+  const navigate = useNavigate();
 
   const handleUpdate = async () => {
     const userId = localStorage.getItem("userId");
@@ -15,11 +19,14 @@ function Settings() {
       body: JSON.stringify({ userName, password }),
     });
 
-    alert("Account updated!");
+    alert("Account Updated!");
+    navigate("/login");
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
+      <h2>Settings</h2>
+
       <h2>Edit Account</h2>
 
       <input

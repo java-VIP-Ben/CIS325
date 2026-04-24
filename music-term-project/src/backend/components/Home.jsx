@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
+import Equalizer from "./Equalizer.jsx";
 
 function Home() {
   const [query, setQuery] = useState("");
@@ -10,6 +11,9 @@ function Home() {
   const [playlistSongs, setPlaylistSongs] = useState([]);
 
   const [playlists, setPlaylists] = useState([]);
+
+  // equalizer
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const fetchPlaylists = async () => {
     const userId = localStorage.getItem("userId");
@@ -102,7 +106,12 @@ function Home() {
     <button onClick={searchVideos}>Search</button>
 
     {selectedVideo && (
-      <div style={{ marginTop: "20px" }}>
+      <div style={{ 
+        display: "flex",
+        alignItems: "center",
+        gap: "20px",
+        marginTop: "20px",
+      }}>
       <iframe
       width="560"
       height="315"
@@ -110,6 +119,7 @@ function Home() {
       allow="autoplay"
       title="player"
       />
+      <Equalizer isPlaying={isPlaying} />
       </div>
     )}
 
@@ -129,9 +139,10 @@ function Home() {
       <p>{video.snippet.title}</p>
 
       <button
-      onClick={() =>
-        setSelectedVideo(video.id.videoId)
-      }
+      onClick={() => {
+        setSelectedVideo(video.id.videoId);
+        setIsPlaying(true);
+      }}
       >
       Play
       </button>
@@ -170,8 +181,8 @@ function Home() {
         <button
         onClick={() => removeSong(song.id)}
         style={{
-          background: "red",
-            color: "white",
+          background: "var(--card)",
+            color: "var(--text)",
             border: "none",
             padding: "5px",
             cursor: "pointer",

@@ -1,0 +1,14 @@
+.eq-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.eq-bar {
+  width: 5px;
+  background: limegreen;
+  transition: height 0.35s ease;
+  border-radius: 2px;
+}

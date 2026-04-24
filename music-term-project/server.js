@@ -21,10 +21,7 @@ db.run(`
   CREATE TABLE IF NOT EXISTS Accounts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     userName TEXT UNIQUE,
-    password TEXT,
-    firstName TEXT,
-    lastName TEXT,
-    email TEXT
+    password TEXT
   )
 `);
 

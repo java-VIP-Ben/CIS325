@@ -1,9 +1,27 @@
+:root {
+  --bg: #507dc7;
+  --text: #000;
+  --card: white;
+  --sidebar: #345385;
+  --button: #4CAF50;
+  --button-hover: #45a049;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #ffffff;
+  --card: #1e1e1e;
+  --sidebar: #1a1a1a;
+  --button: #3b82f6;
+  --button-hover: #2563eb;
+}
+
 body {
   justify-content: center;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #507dc7; /* use this color for other backgrounds */
-  color: #000;
+  background-color: var(--bg); 
+  color: var(--text);
 }
 
 .container {
@@ -11,7 +29,7 @@ body {
   height: 100%;
   margin: 80px auto;
   padding: 20px;
-  background: white;
+  background: var(--card);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -30,25 +48,29 @@ body {
 button {
   padding: 8px 15px;
   border: none;
-  background-color: #4CAF50;
+  background-color: var(--button);
   color: white;
   cursor: pointer;
   border-radius: 5px;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: var(--button-hover);
 }
 
 input {
   width: 90%;
   padding: 8px;
   margin: 8px 0 8px 0;
+  background: var(--card);
+  color: var(--text);
   display: block;
+  border: 1px solid #ccc;
 }
 
 table {
-  background-color: white;
+  background-color: var(--card);
+  color: var(--text);
 }
 
 img {
@@ -63,8 +85,8 @@ iframe {
 
 .sidebar {
   width: 250px;
-  background: #345385;
-  color: white;
+  background: var(--sidebar);
+  color: var(--text);
   height: 100%;
 }
 
