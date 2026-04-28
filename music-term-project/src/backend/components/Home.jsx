@@ -23,6 +23,7 @@ function Home() {
     );
 
     const data = await res.json();
+    console.log(data);
     setRecommendations(data.items || []);
   };
 
@@ -94,7 +95,10 @@ function Home() {
   };
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div style={{ 
+      display: "flex", 
+      height: "100vh"
+    }}>
     <Sidebar
     selectedPlaylist={selectedPlaylist}
     onSelectPlaylist={(id) => {
@@ -225,8 +229,8 @@ function Home() {
       <h3>Recommendations</h3>
 
       <button onClick={() => getRecommendations("chill")}>Chill</button>
-      <button onClick={() => getRecommendations("workout")}>Workout</button>
-      <button onClick={() => getRecommendations("focus")}>Focus</button>
+      <button style={{ marginLeft: "8px" }} onClick={() => getRecommendations("workout")}>Workout</button>
+      <button style={{ marginLeft: "8px" }} onClick={() => getRecommendations("focus")}>Focus</button>
 
       {recommendations.map((video) => (
         <div key={video.id.videoId} style={{ marginBottom: "10px" }}>

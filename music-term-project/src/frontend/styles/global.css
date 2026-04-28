@@ -1,5 +1,5 @@
 :root {
-  --bg: #507dc7;
+  --bg-gradient: linear-gradient(to left, #507dc7, #345385, #345385);
   --text: #000;
   --card: white;
   --sidebar: #345385;
@@ -9,10 +9,10 @@
 }
 
 body.dark {
-  --bg: #121212;
+  --bg-gradient: linear-gradient(to left, #2a2a2a, #141414, #141414);
   --text: #ffffff;
   --card: #1e1e1e;
-  --sidebar: #1a1a1a;
+  --sidebar: #141414;
   --button: #3b82f6;
   --button-hover: #2563eb;
   --hover: #263c61
@@ -22,7 +22,7 @@ body {
   justify-content: center;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: var(--bg); 
+  background: var(--bg-gradient); 
   color: var(--text);
 }
 
@@ -90,9 +90,44 @@ iframe {
   background: var(--sidebar);
   color: var(--text);
   height: 100%;
+  border-right: 1px solid #000;
 }
 
 .main {
   flex: 1;
   padding: 20px;
+}
+
+select {
+  margin: 5px 0 0 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+}
+
+select:hover {
+  border-color: var(--button);
+}
+
+select:focus {
+  border-color: var(--button);
+  box-shadow: 0 0 5px var(--button);
+}
+
+select option {
+  background: var(--card);
+  color: var(--text);
+}
+
+textarea {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
 }

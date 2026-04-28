@@ -105,7 +105,7 @@ function Sidebar({ onSelectPlaylist, onPlaylistDeleted, selectedPlaylist }) {
       );
     })}
 
-    <button onClick={handleCreate}>+ New Playlist</button>
+    <button style={{ marginLeft: "8px" }} onClick={handleCreate}>+ New Playlist</button>
     </div>
   );
 }

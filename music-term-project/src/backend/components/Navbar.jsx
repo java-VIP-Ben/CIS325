@@ -55,6 +55,9 @@ function Navbar({theme, setTheme}) {
 
       </div>
     )}
+      <button style={{ marginLeft: "8px" }} onClick={() => navigate("/contact")}>
+        Contact Me
+      </button>
     </div>
   );
 }

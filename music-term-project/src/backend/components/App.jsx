@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import Login from "../components/Login.jsx";
 import Register from "../components/Register.jsx";
 import Home from "../components/Home.jsx";
-import Navbar from "../components/Navbar";
-import Settings from "../components/Settings";
+import Navbar from "../components/Navbar.jsx";
+import Contact from "../components/Contact.jsx";
+import Settings from "../components/Settings.jsx";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -22,6 +23,7 @@ function App() {
     <Route path="/register" element={<Register />} />
     <Route path="/home" element={<Home />} />
     <Route path="/settings" element={<Settings />} />
+    <Route path="/contact" element={<Contact />} />
     </Routes>
     </div>
   );
