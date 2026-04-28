@@ -26,9 +26,16 @@ Note: Deleting the account deletes all playlists and redirects the user to login
 Note: Editing an account will change the login information, it may be important to store
 credentials manually. 
 
+Other features:
+The app also has a contact form accessible by a button next to the "Account Settings" button. 
+This takes you to a page where you can send me, the developer, an email by using Formspree. 
+Formspree is a third party site that creates forms that simplifies email/form completion much easier
+than the native built in email submission types. 
+
 Features completed:
 [ x ] -> Ability to search for new music
 [ x ] -> Music recommendations
 [ x ] -> Visual Equalizer
 [ x ] -> Playlist functionality
 [ x ] -> Easy to use UI and selectable various color schemes
+[ x ] -> Working contact form
